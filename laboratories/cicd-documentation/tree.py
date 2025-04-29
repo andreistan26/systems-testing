@@ -75,11 +75,26 @@ class Tree:
             self._printInorderTree(node.right)
 
     def _printPreorderTree(self, node):
-        # TODO
-        pass
+        if node is not None:
+            print(str(node.data) + ' ')
+            self._printPreorderTree(node.left)
+            self._printPreorderTree(node.right)
+
 
     def _printPostorderTree(self, node):
-        # TODO
-        pass
+        if node is not None:
+            self._printPostorderTree(node.left)
+            self._printPostorderTree(node.right)
+            print(str(node.data) + ' ')
 
+def test_find_1():
+    tree = Tree()
+    tree.add(5)
+    tree.add(3)
+    tree._find(5, tree.root)
 
+def test_find_2():
+    tree = Tree()
+    tree.add(5)
+    tree.add(3)
+    tree._find(3, tree.root)
